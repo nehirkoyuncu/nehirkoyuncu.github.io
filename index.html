@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nehir Koyuncu | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* --- TEMEL AYARLAR --- */
+        :root {
+            --bg-color: #0d0d0d;       /* Koyu arka plan */
+            --card-bg: #161616;        /* Kart rengi */
+            --text-main: #ffffff;      /* Ana yazı */
+            --text-sub: #a0a0a0;       /* Alt yazı */
+            --accent: #00ff41;         /* Neon Yeşil */
+            --accent-hover: #00cc33;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            line-height: 1.6;
+        }
+        a { text-decoration: none; transition: 0.3s; }
+
+        /* --- HEADER (İstediğin Bölüm) --- */
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
+            border-bottom: 1px solid #333;
+            text-align: center;
+        }
+
+        /* 1. Profil Resmi */
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--accent);
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+            margin-bottom: 20px;
+            background-color: #333; /* Fotoğraf yüklenene kadar gri durur */
+        }
+
+        /* 2. İsim */
+        h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        /* 3. Unvan */
+        .title {
+            color: var(--accent);
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-top: 5px;
+        }
+
+        /* 4. Konum */
+        .location {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* 5. Sosyal Medya Butonları (Email, LinkedIn, GitHub) */
+        .social-row {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .social-btn {
+            background-color: #222;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: 1px solid #333;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .social-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* 6. CV Butonları */
+        .cv-row {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .cv-btn {
+            background-color: transparent;
+            color: var(--accent);
+            padding: 12px 25px;
+            border-radius: 5px;
+            border: 2px solid var(--accent);
+            font-weight: bold;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+        }
+        .cv-btn:hover {
+            background-color: var(--accent);
+            color: #000;
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.4);
+        }
+
+        /* --- DİĞER İÇERİKLER --- */
+        .container { max-width: 900px; margin: 0 auto; padding: 50px 20px; }
+        section { margin-bottom: 60px; }
+        h2 { border-left: 4px solid var(--accent); padding-left: 15px; color: #fff; margin-bottom: 25px; }
+        
+        /* Kart Tasarımı */
+        .card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #222;
+        }
+        .card-title { font-weight: bold; font-size: 1.1rem; color: #fff; }
+        .card-sub { color: var(--accent); font-size: 0.9rem; }
+        .card-date { color: #666; font-size: 0.85rem; margin-bottom: 10px; font-family: monospace;}
+        .card ul { padding-left: 20px; color: #ccc; margin-top: 10px; }
+
+        /* Yetenek Etiketleri */
+        .skill-tag {
+            display: inline-block;
+            background: #222;
+            color: #ddd;
+            padding: 5px 12px;
+            border-radius: 4px;
+            margin: 0 5px 5px 0;
+            font-size: 0.85rem;
+            border: 1px solid #333;
+        }
+        .highlight { border-color: var(--accent); color: #fff; }
+        
+        /* Footer */
+        footer { text-align: center; color: #555; font-size: 0.8rem; padding-bottom: 40px; }
+
+        @media (max-width: 600px) {
+            .social-row, .cv-row { flex-direction: column; width: 100%; }
+            .social-btn, .cv-btn { width: 100%; box-sizing: border-box; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="profile.jpg" alt="Nehir Koyuncu" class="profile-img">
+
+        <h1>NEHIR KOYUNCU</h1>
+
+        <div class="title">Data & ML-Oriented Software Engineer</div>
+
+        <div class="location">
+            <i class="fas fa-map-marker-alt"></i> Turin, Piedmont, Italy
+        </div>
+
+        <div class="social-row">
+            <a href="mailto:nehirkoyuncu1@gmail.com" class="social-btn">
+                <i class="fas fa-envelope"></i> Email
+            </a>
+            <a href="https://linkedin.com/in/nehir-koyuncu" target="_blank" class="social-btn">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://github.com/nehirkoyuncu" target="_blank" class="social-btn">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+        </div>
+
+        <div class="cv-row">
+            <a href="cv-en.pdf" class="cv-btn" download>
+                <i class="fas fa-file-download"></i> CV (English)
+            </a>
+            <a href="cv-it.pdf" class="cv-btn" download>
+                <i class="fas fa-file-download"></i> CV (Italiano)
+            </a>
+        </div>
+    </header>
+    <div class="container">
+        
+        <section>
+            <h2>About Me</h2>
+            <p>
+                I am a third-year <strong>Computer Engineering</strong> student at <strong>Politecnico di Torino</strong> and a <strong>TOPoliTO Merit Scholar</strong>. 
+                Passionate about Software Development, Data Science, and Machine Learning. 
+                I combine my technical skills with discipline gained from 13 years as an orchestra violinist and a licensed volleyball player.
+                <strong>Traveller:</strong> Visited 37 countries.
+            </p>
+        </section>
+
+        <section>
+            <h2>Experience</h2>
+            <div class="card">
+                <div class="card-title">Curricular Intern</div>
+                <div class="card-sub">INRIM (Istituto Nazionale di Ricerca Metrologica)</div>
+                <div class="card-date">Feb 2026 - May 2026</div>
+                <ul>
+                    <li>Data evaluation and digital signal processing.</li>
+                    <li>Software tools for waveform analysis.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Machine Learning Trainee</div>
+                <div class="card-sub">MALTO (MAchine Learning @ PoliTO)</div>
+                <div class="card-date">Nov 2025 - Present</div>
+                <ul>
+                    <li>Training in Python-based data analysis and ML fundamentals.</li>
+                </ul>
+            </div>
+             <div class="card">
+                <div class="card-title">Researcher</div>
+                <div class="card-sub">Ker (PoliTO Student Team)</div>
+                <div class="card-date">Mar 2025 - Present</div>
+                <ul>
+                    <li>Creating educational content to promote math awareness.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Selected Projects</h2>
+            <div class="card">
+                <div class="card-title">NYC Public School Test Scores</div>
+                <div class="card-date">Data Analysis • Pandas</div>
+                <p>Analyzed educational datasets to identify performance trends.</p>
+            </div>
+            <div class="card">
+                <div class="card-title">Netflix Movies Analysis</div>
+                <div class="card-date">EDA • Visualization</div>
+                <p>Exploratory data analysis using Python libraries.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Skills</h2>
+            <div>
+                <span class="skill-tag highlight">Python</span>
+                <span class="skill-tag highlight">Java</span>
+                <span class="skill-tag highlight">C</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">MATLAB</span>
+                <span class="skill-tag">Pandas & NumPy</span>
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">Turkish (Native)</span>
+                <span class="skill-tag">English (Proficient)</span>
+                <span class="skill-tag">Italian (Intermediate)</span>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Education</h2>
+            <div class="card">
+                <div class="card-title">Politecnico di Torino</div>
+                <div class="card-sub">B.Sc. Computer Engineering</div>
+                <div class="card-date">Sep 2023 - Oct 2026</div>
+                <p>TOPoliTO Merit Scholar</p>
+            </div>
+        </section>
+
+        <footer>
+            &copy; 2026 Nehir Koyuncu. Hosted on GitHub Pages.
+        </footer>
+    </div>
+
+</body>
+</html>
