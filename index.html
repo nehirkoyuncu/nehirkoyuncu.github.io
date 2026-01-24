@@ -18,11 +18,12 @@
             background-color: var(--bg-color);
             color: var(--text-main);
             margin: 0;
-            padding: 0;
-            height: 100vh;
+            padding: 20px; /* Kenarlardan boşluk */
+            min-height: 100vh; /* Sayfa en az ekran kadar olsun ama uzayabilsin */
             display: flex;
             justify-content: center;
             align-items: center;
+            box-sizing: border-box;
         }
         a { text-decoration: none; transition: 0.3s; }
 
@@ -30,15 +31,13 @@
         .profile-card {
             text-align: center;
             padding: 40px 30px;
-            max-width: 450px; /* Biraz daha dar ve şık */
-            width: 90%;
+            max-width: 450px;
+            width: 100%;
             border: 1px solid #222;
             border-radius: 20px;
             background: linear-gradient(180deg, #161616 0%, #0d0d0d 100%);
             box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-            /* Mobilde taşmayı önlemek için */
-            max-height: 95vh;
-            overflow-y: auto; 
+            /* Scrollbar kodlarını kaldırdık, artık temiz duracak */
         }
 
         /* Profil Resmi */
@@ -100,7 +99,7 @@
             background-color: #1a1a1a;
         }
 
-        /* CV Butonları (Ayırt edilmesi için farklı stil) */
+        /* CV Butonları */
         .cv-btn {
             background-color: transparent;
             color: var(--accent);
