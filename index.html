@@ -18,26 +18,24 @@
             background-color: var(--bg-color);
             color: var(--text-main);
             margin: 0;
-            padding: 20px; /* Kenarlardan boşluk */
-            min-height: 100vh; /* Sayfa en az ekran kadar olsun ama uzayabilsin */
+            padding: 20px;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             box-sizing: border-box;
         }
-        a { text-decoration: none; transition: 0.3s; }
-
+        
         /* --- KART TASARIMI --- */
         .profile-card {
             text-align: center;
-            padding: 40px 30px;
-            max-width: 450px;
+            padding: 50px 30px;
+            max-width: 400px; /* Kartı biraz daha daralttık, daha zarif dursun diye */
             width: 100%;
             border: 1px solid #222;
             border-radius: 20px;
             background: linear-gradient(180deg, #161616 0%, #0d0d0d 100%);
             box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-            /* Scrollbar kodlarını kaldırdık, artık temiz duracak */
         }
 
         /* Profil Resmi */
@@ -48,81 +46,64 @@
             border-radius: 50%;
             border: 3px solid var(--accent);
             box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             background-color: #333;
         }
 
         /* İsim ve Unvan */
-        h1 {
-            font-size: 2rem;
-            margin: 0;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-        .title {
-            color: var(--accent);
-            font-size: 1rem;
-            margin-top: 5px;
-            font-weight: 500;
-        }
-        .location {
-            color: var(--text-sub);
-            font-size: 0.85rem;
-            margin-top: 5px;
-            margin-bottom: 25px;
-        }
+        h1 { font-size: 1.8rem; margin: 0; font-weight: 700; letter-spacing: 0.5px; }
+        .title { color: var(--accent); font-size: 0.95rem; margin-top: 8px; font-weight: 500; }
+        .location { color: var(--text-sub); font-size: 0.85rem; margin-top: 5px; margin-bottom: 35px; }
 
-        /* Butonlar */
-        .btn-container {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            align-items: center;
-        }
-        .social-btn {
-            background-color: #222;
-            color: #fff;
-            padding: 12px 0;
-            width: 100%;
-            border-radius: 50px;
-            border: 1px solid #333;
-            font-size: 0.95rem;
+        /* --- SOSYAL MEDYA İKONLARI --- */
+        .social-icons-row {
             display: flex;
             justify-content: center;
-            align-items: center;
-            gap: 10px;
+            gap: 25px; /* İkonlar arası boşluk */
+            margin-bottom: 35px;
         }
-        .social-btn:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-            transform: scale(1.02);
-            background-color: #1a1a1a;
+        .icon-btn {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background-color: #222;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            border: 1px solid #333;
+            transition: 0.3s;
+        }
+        .icon-btn:hover {
+            background-color: var(--accent);
+            color: #000;
+            transform: translateY(-5px);
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.4);
         }
 
         /* CV Butonları */
         .cv-btn {
+            display: block;
+            width: 100%;
+            padding: 12px 0;
+            margin-bottom: 12px;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: bold;
             background-color: transparent;
             color: var(--accent);
             border: 1px solid var(--accent);
+            transition: 0.3s;
         }
         .cv-btn:hover {
             background-color: var(--accent);
             color: #000;
+            box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
         }
 
-        /* Ayırıcı Çizgi */
-        .divider {
-            height: 1px;
-            background-color: #333;
-            width: 100%;
-            margin: 10px 0;
-        }
-
-        footer {
-            margin-top: 30px;
-            font-size: 0.7rem;
-            color: #444;
-        }
+        footer { font-size: 0.75rem; color: #444; margin-top: 30px; }
     </style>
 </head>
 <body>
@@ -135,31 +116,25 @@
         <div class="title">Data & ML-Oriented Software Engineer</div>
         <div class="location"><i class="fas fa-map-marker-alt"></i> Turin, Piedmont, Italy</div>
 
-        <div class="btn-container">
-            
-            <a href="mailto:nehirkoyuncu1@gmail.com" class="social-btn">
-                <i class="fas fa-envelope"></i> nehirkoyuncu1@gmail.com
+        <div class="social-icons-row">
+            <a href="mailto:nehirkoyuncu1@gmail.com" class="icon-btn" title="Email Me">
+                <i class="fas fa-envelope"></i>
             </a>
-
-            <a href="https://www.linkedin.com/in/nehir-koyuncu-6112a129b" target="_blank" class="social-btn">
-                <i class="fab fa-linkedin"></i> LinkedIn Profilim
+            <a href="https://www.linkedin.com/in/nehir-koyuncu-6112a129b" target="_blank" class="icon-btn" title="LinkedIn">
+                <i class="fab fa-linkedin"></i>
             </a>
-
-            <a href="https://github.com/nehirkoyuncu" target="_blank" class="social-btn">
-                <i class="fab fa-github"></i> GitHub Projelerim
+            <a href="https://github.com/nehirkoyuncu" target="_blank" class="icon-btn" title="GitHub">
+                <i class="fab fa-github"></i>
             </a>
-
-            <div class="divider"></div>
-
-            <a href="cv-en.pdf" class="social-btn cv-btn" download>
-                <i class="fas fa-file-download"></i> Download CV (English)
-            </a>
-            
-            <a href="cv-it.pdf" class="social-btn cv-btn" download>
-                <i class="fas fa-file-download"></i> Scarica CV (Italiano)
-            </a>
-
         </div>
+
+        <a href="cv-en.pdf" class="cv-btn" download>
+            <i class="fas fa-file-download"></i> Download CV (English)
+        </a>
+        
+        <a href="cv-it.pdf" class="cv-btn" download>
+            <i class="fas fa-file-download"></i> Scarica CV (Italiano)
+        </a>
 
         <footer>
             &copy; 2026 Nehir Koyuncu.
