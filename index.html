@@ -30,7 +30,7 @@
         .profile-card {
             text-align: center;
             padding: 50px 30px;
-            max-width: 400px; /* Kartı biraz daha daralttık, daha zarif dursun diye */
+            max-width: 400px; 
             width: 100%;
             border: 1px solid #222;
             border-radius: 20px;
@@ -47,7 +47,7 @@
             border: 3px solid var(--accent);
             box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
             margin-bottom: 20px;
-            background-color: #333;
+            background-color: transparent; /* PNG için şeffaf yaptık */
         }
 
         /* İsim ve Unvan */
@@ -59,7 +59,7 @@
         .social-icons-row {
             display: flex;
             justify-content: center;
-            gap: 25px; /* İkonlar arası boşluk */
+            gap: 25px; 
             margin-bottom: 35px;
         }
         .icon-btn {
@@ -96,6 +96,7 @@
             color: var(--accent);
             border: 1px solid var(--accent);
             transition: 0.3s;
+            text-decoration: none; /* Link çizgisini kaldırdık */
         }
         .cv-btn:hover {
             background-color: var(--accent);
@@ -128,12 +129,12 @@
             </a>
         </div>
 
-        <a href="cv-en.pdf" class="cv-btn" download>
-            <i class="fas fa-file-download"></i> Download CV (English)
+        <a href="mailto:nehirkoyuncu1@gmail.com?subject=CV Request - Nehir Koyuncu" class="cv-btn">
+            <i class="fas fa-paper-plane"></i> Request Full CV (English)
         </a>
         
-        <a href="cv-it.pdf" class="cv-btn" download>
-            <i class="fas fa-file-download"></i> Scarica CV (Italiano)
+        <a href="mailto:nehirkoyuncu1@gmail.com?subject=Richiesta CV - Nehir Koyuncu" class="cv-btn">
+            <i class="fas fa-paper-plane"></i> Richiedi CV (Italiano)
         </a>
 
         <footer>
