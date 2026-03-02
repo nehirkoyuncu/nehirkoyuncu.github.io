@@ -6,22 +6,27 @@
     <title>Nehir Koyuncu | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        /* --- GENEL AYARLAR --- */
         :root {
             --bg-color: #0d0d0d;
             --text-main: #ffffff;
-            --text-sub: #c0c0c0;
-            --accent: #00ff41;
+            --text-sub: #c0c0c0; /* Gri tonu biraz daha açıldı */
+            --accent: #00ff41; /* Neon Yeşil */
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
-            margin: 0; padding: 20px;
+            margin: 0;
+            padding: 20px;
             min-height: 100vh;
-            display: flex; justify-content: center; align-items: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             box-sizing: border-box;
         }
         
+        /* --- KART TASARIMI --- */
         .profile-card {
             text-align: center;
             padding: 40px 30px;
@@ -33,81 +38,121 @@
             box-shadow: 0 20px 50px rgba(0,0,0,0.8);
         }
 
-        /* Profil Resmi Ayarları */
-        .profile-img-container {
-            width: 180px;
+        /* Profil Resmi - Küçültme ve %30 büyüme eklendi */
+        .profile-img {
+            width: 180px; 
             height: 180px;
-            margin: 0 auto 25px auto;
+            object-fit: contain; /* Görseli kesmeden içeri sığdırmak için 'contain' yaptık */
             border-radius: 50%;
             border: 4px solid var(--accent);
             box-shadow: 0 0 30px rgba(0, 255, 65, 0.4);
-            overflow: hidden; /* Taşmaları önler */
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            margin-bottom: 25px;
             background-color: #1a1a1a;
-        }
-
-        .profile-img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain; /* Kafanın kesilmemesi için tam sığdırır */
-            padding: 12px; /* Çember içinde biraz daha küçük durmasını sağlar */
+            padding: 10px; /* Görseli çemberin içinde küçülten kısım */
             box-sizing: border-box;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Yaylanma efekti */
+            transition: transform 0.3s ease;
         }
         
         /* Üzerine gelince %30 büyüme sağlayan kısım */
-        .profile-img-container:hover .profile-img {
-            transform: scale(1.3);
+        .profile-img:hover {
+            transform: scale(1.30);
         }
 
-        /* Yazı ve Butonlar */
+        /* İsim ve Unvan */
         h1 { font-size: 2rem; margin: 0; font-weight: 700; letter-spacing: 1px; }
-        .title { color: var(--accent); font-size: 1rem; margin-top: 10px; }
-        .location { color: var(--text-sub); font-size: 0.9rem; margin: 10px 0 35px 0; }
+        .title { color: var(--accent); font-size: 1rem; margin-top: 10px; font-weight: 500; }
+        .location { color: var(--text-sub); font-size: 0.9rem; margin-top: 10px; margin-bottom: 35px; }
 
-        .social-icons-row { display: flex; justify-content: center; gap: 20px; margin-bottom: 35px; }
+        /* --- SOSYAL MEDYA İKONLARI --- */
+        .social-icons-row {
+            display: flex;
+            justify-content: center;
+            gap: 20px; 
+            margin-bottom: 35px;
+        }
         .icon-btn {
-            width: 50px; height: 50px; border-radius: 12px;
-            background-color: #1a1a1a; color: #fff;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.3rem; border: 1px solid #333; text-decoration: none; transition: 0.3s;
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background-color: #1a1a1a;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            border: 1px solid #333;
+            transition: 0.3s;
+            text-decoration: none;
         }
-        .icon-btn:hover { background-color: var(--accent); color: #000; transform: translateY(-5px); }
+        .icon-btn:hover {
+            background-color: var(--accent);
+            color: #000;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 65, 0.3);
+        }
 
+        /* CV Butonları */
         .cv-btn {
-            display: flex; align-items: center; justify-content: center; gap: 10px;
-            width: 100%; padding: 14px 0; margin-bottom: 15px;
-            border-radius: 12px; font-weight: 600; text-decoration: none;
-            color: var(--accent); border: 1px solid var(--accent); transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 14px 0;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 0.95rem;
+            font-weight: 600;
+            background-color: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            transition: 0.3s;
+            text-decoration: none;
         }
-        .cv-btn:hover { background-color: var(--accent); color: #000; }
-        
+        .cv-btn:hover {
+            background-color: var(--accent);
+            color: #000;
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.4);
+        }
+
         footer { font-size: 0.8rem; color: #888; margin-top: 25px; }
     </style>
 </head>
 <body>
 
     <div class="profile-card">
-        <div class="profile-img-container">
-            <img src="profile.png" alt="Nehir Koyuncu" class="profile-img">
-        </div>
+        
+        <img src="profile.png" alt="Nehir Koyuncu" class="profile-img">
 
         <h1>NEHIR KOYUNCU</h1>
         <div class="title">Data & ML-Oriented Software Engineer</div>
         <div class="location"><i class="fas fa-map-marker-alt"></i> Turin, Piedmont, Italy</div>
 
         <div class="social-icons-row">
-            <a href="mailto:nehirkoyuncu1@gmail.com" class="icon-btn"><i class="fas fa-envelope"></i></a>
-            <a href="https://www.linkedin.com/in/nehir-koyuncu-6112a129b" target="_blank" class="icon-btn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://github.com/nehirkoyuncu" target="_blank" class="icon-btn"><i class="fab fa-github"></i></a>
+            <a href="mailto:nehirkoyuncu1@gmail.com" class="icon-btn" title="Email Me">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/nehir-koyuncu-6112a129b" target="_blank" class="icon-btn" title="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/nehirkoyuncu" target="_blank" class="icon-btn" title="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
         </div>
 
-        <a href="mailto:nehirkoyuncu1@gmail.com?subject=CV Request" class="cv-btn">Request CV (EN)</a>
-        <a href="mailto:nehirkoyuncu1@gmail.com?subject=Richiesta CV" class="cv-btn">Richiedi CV (IT)</a>
+        <a href="mailto:nehirkoyuncu1@gmail.com?subject=CV Request - Nehir Koyuncu" class="cv-btn">
+            <i class="fas fa-paper-plane"></i> Request CV (English)
+        </a>
+        
+        <a href="mailto:nehirkoyuncu1@gmail.com?subject=Richiesta CV - Nehir Koyuncu" class="cv-btn">
+            <i class="fas fa-paper-plane"></i> Richiedi CV (Italiano)
+        </a>
 
-        <footer>&copy; 2026 Nehir Koyuncu.</footer>
+        <footer>
+            &copy; 2026 Nehir Koyuncu.
+        </footer>
+
     </div>
 
 </body>
