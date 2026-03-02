@@ -26,7 +26,6 @@
             box-sizing: border-box;
         }
         
-        /* --- KART TASARIMI --- */
         .profile-card {
             text-align: center;
             padding: 40px 30px;
@@ -38,32 +37,32 @@
             box-shadow: 0 20px 50px rgba(0,0,0,0.8);
         }
 
-        /* Profil Resmi - Biraz daha küçültüldü (0.85) */
+        /* Profil Resmi - Saç uçlarını gösteren ayar */
         .profile-img {
             width: 180px; 
             height: 180px;
-            object-fit: cover;
-            object-position: center 15%; 
+            /* contain: Resmin tamamını (saç uçları dahil) kesmeden sığdırır */
+            object-fit: contain; 
             border-radius: 50%;
             border: 4px solid var(--accent);
             box-shadow: 0 0 30px rgba(0, 255, 65, 0.4);
             margin-bottom: 25px;
-            background-color: transparent;
-            /* Resim %15 oranında küçültüldü */
-            transform: scale(0.85); 
+            /* Resmin etrafında boşluk kalmaması için arka plan rengi */
+            background-color: #ffffff; 
+            /* Resmi çember içinde hafif küçülterek daha şık durmasını sağlar */
+            padding: 5px; 
+            box-sizing: border-box;
             transition: transform 0.3s ease;
         }
         
         .profile-img:hover {
-            transform: scale(0.95);
+            transform: scale(1.1);
         }
 
-        /* İsim ve Unvan */
         h1 { font-size: 2rem; margin: 0; font-weight: 700; letter-spacing: 1px; }
         .title { color: var(--accent); font-size: 1rem; margin-top: 10px; font-weight: 500; }
         .location { color: var(--text-sub); font-size: 0.9rem; margin-top: 10px; margin-bottom: 35px; }
 
-        /* --- SOSYAL MEDYA İKONLARI --- */
         .social-icons-row {
             display: flex;
             justify-content: center;
@@ -71,8 +70,7 @@
             margin-bottom: 35px;
         }
         .icon-btn {
-            width: 50px;
-            height: 50px;
+            width: 50px; height: 50px;
             border-radius: 12px;
             background-color: #1a1a1a;
             color: #fff;
@@ -91,7 +89,6 @@
             box-shadow: 0 10px 20px rgba(0, 255, 65, 0.3);
         }
 
-        /* CV Butonları */
         .cv-btn {
             display: flex;
             align-items: center;
@@ -122,37 +119,21 @@
 <body>
 
     <div class="profile-card">
-        
         <img src="profile.png" alt="Nehir Koyuncu" class="profile-img">
-
         <h1>NEHIR KOYUNCU</h1>
         <div class="title">Data & ML-Oriented Software Engineer</div>
         <div class="location"><i class="fas fa-map-marker-alt"></i> Turin, Piedmont, Italy</div>
 
         <div class="social-icons-row">
-            <a href="mailto:nehirkoyuncu1@gmail.com" class="icon-btn" title="Email Me">
-                <i class="fas fa-envelope"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/nehir-koyuncu-6112a129b" target="_blank" class="icon-btn" title="LinkedIn">
-                <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a href="https://github.com/nehirkoyuncu" target="_blank" class="icon-btn" title="GitHub">
-                <i class="fab fa-github"></i>
-            </a>
+            <a href="mailto:nehirkoyuncu1@gmail.com" class="icon-btn" title="Email Me"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/nehir-koyuncu-6112a129b" target="_blank" class="icon-btn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/nehirkoyuncu" target="_blank" class="icon-btn" title="GitHub"><i class="fab fa-github"></i></a>
         </div>
 
-        <a href="mailto:nehirkoyuncu1@gmail.com?subject=CV Request - Nehir Koyuncu" class="cv-btn">
-            <i class="fas fa-paper-plane"></i> Request CV (English)
-        </a>
-        
-        <a href="mailto:nehirkoyuncu1@gmail.com?subject=Richiesta CV - Nehir Koyuncu" class="cv-btn">
-            <i class="fas fa-paper-plane"></i> Richiedi CV (Italiano)
-        </a>
+        <a href="mailto:nehirkoyuncu1@gmail.com?subject=CV Request" class="cv-btn"><i class="fas fa-paper-plane"></i> Request CV (English)</a>
+        <a href="mailto:nehirkoyuncu1@gmail.com?subject=Richiesta CV" class="cv-btn"><i class="fas fa-paper-plane"></i> Richiedi CV (Italiano)</a>
 
-        <footer>
-            &copy; 2026 Nehir Koyuncu.
-        </footer>
-
+        <footer>&copy; 2026 Nehir Koyuncu.</footer>
     </div>
 
 </body>
